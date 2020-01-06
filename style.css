@@ -1,0 +1,36 @@
+.button {
+  /* position: absolute; */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  height: 150px;
+  width: 150px;
+}
+#button1 {
+  border-radius: 100% 0 0 0;
+  background-color: green;
+}
+#button1:hover {
+  background-color: darkgreen;
+}
+#button2 {
+  border-radius: 0 100% 0 0;
+  background-color: red;
+}
+#button2:hover {
+  background-color: darkred;
+}
+#button3 {
+  border-radius: 0 0 100% 0;
+  background-color: yellow;
+}
+#button3:hover {
+  background-color: rgb(203, 203, 3);
+}
+#button4 {
+  border-radius: 0 0 0 100%;
+  background-color: blue;
+}
+#button4:hover {
+  background-color: darkblue;
+}
