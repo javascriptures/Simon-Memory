@@ -1,36 +1,33 @@
+.container {
+  text-align: center;
+  margin: 0 auto;
+}
 .button {
-  /* position: absolute; */
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  height: 150px;
-  width: 150px;
+  height: 200px;
+  width: 200px;
+}
+.button:hover {
+  opacity: 0.5;
 }
 #button1 {
   border-radius: 100% 0 0 0;
   background-color: green;
-}
-#button1:hover {
-  background-color: darkgreen;
+  border: 4px solid darkgreen;
 }
 #button2 {
   border-radius: 0 100% 0 0;
   background-color: red;
-}
-#button2:hover {
-  background-color: darkred;
+  border: 4px solid darkred;
 }
 #button3 {
   border-radius: 0 0 100% 0;
   background-color: yellow;
-}
-#button3:hover {
-  background-color: rgb(203, 203, 3);
+  border: 4px solid goldenrod;
+  float: right;
 }
 #button4 {
   border-radius: 0 0 0 100%;
   background-color: blue;
-}
-#button4:hover {
-  background-color: darkblue;
+  border: 4px solid darkblue;
+  float: right;
 }
