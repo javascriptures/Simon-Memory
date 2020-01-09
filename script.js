@@ -2,7 +2,7 @@ userInput = [];
 compSeq = [];
 var score = 0;
 let buttonCount = compSeq.length;
-const clickSound = new Audio('/sounds/click.mp3');
+const clickSound = new Audio('sounds/click.mp3');
 
 var readyButton = document.querySelector('.ready');
 var myScore = document.querySelector('.score');
