@@ -58,20 +58,41 @@ document.querySelector('.sequence').addEventListener('click', lightUp);
 //   }, 1000);
 // }
 
-function isEqual(){
-  if (userInput.length == compSeq.length){
-    for (i = 0; i<compSeq.length; i++){
+function lightUp() {
+  j = 0;
+  var light = setInterval(function () {
+    if (j < compSeq.length) {
+      $(`#button${compSeq[j]}`)
+        .fadeTo(1000, 0.25)
+        .fadeTo(1000, 1);
+      j++;
+    } else {
+      clearInterval(light);
+    }
+  }, 1000);
+}
+
+function isEqual() {
+  if (userInput.length == compSeq.length) {
+    for (i = 0; i < compSeq.length; i++) {
       return compSeq[i] === userInput[i];
     }
+  } else {
+    return false;
   }
-  else {return false;}
 }
 
 function sequence() {
-  for (i = 0; i<10; i++) {
-  getRandomNumber();
+  if (isEqual()) {
+    getRandomNumber();
+    console.log(compSeq);
+    userInput = [];
+    lightUp();
+  } 
 }
-}
+
+setInterval(sequence, 500);
+
 
 //generate random number for computer sequence
 function getRandomNumber() {
@@ -83,10 +104,9 @@ getRandomNumber();
 getRandomNumber();
 getRandomNumber();
 console.log(compSeq);
+sequence();
 
 // set up a function that will light up the sequence
-
-
 
 // function colorSequence() {
 //   for (i = 0; i < compSeq.length; i++) {
@@ -119,19 +139,6 @@ console.log(compSeq);
 //     clearInterval(lightDown);
 //   }
 // }
-function lightUp() {
-  j = 0;
-  var light = setInterval(function() {
-    if (j < compSeq.length) {
-      $(`#button${compSeq[j]}`)
-        .fadeTo(1000, 0.25)
-        .fadeTo(1000, 1);
-      j++;
-    } else {
-      clearInterval(light);
-    }
-  }, 1000);
-}
 
 // function lightDown(i) {
 //   document.getElementById(`button${compSeq[i]}`).style.opacity = '1.0'
