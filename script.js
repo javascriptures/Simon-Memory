@@ -6,6 +6,8 @@ const clickSound = new Audio('sounds/click.mp3');
 
 var readyButton = document.querySelector('.ready');
 var myScore = document.querySelector('.score');
+var youWon = document.querySelector('img');
+
 
 document.querySelector('#button1').addEventListener('click', function(event) {
   console.log('clicked!');
@@ -54,6 +56,8 @@ readyButton.addEventListener('click', function() {
   intervalSequence;
   console.log(compSeq);
   readyButton.innerText = 'RESTART';
+  youWon.style.visibility = "hidden";
+  confetti.stop();
 });
 
 function lightUp() {
@@ -94,26 +98,27 @@ function sequence() {
 }
 
 function win() {
-  if (score == 10) {
+  if (score == 5) {
     clearInterval(intervalSequence);
     reset();
-    alert('You win!');
-  }
+    confetti.start();
+    youWon.style.visibility = "visible";
+    }
 }
 
-function winSequence() {
-  i = 0;
-  var winnerval = setInterval(function() {
-    if (i <= 4) {
-      $(`#button${i}`)
-        .fadeTo(750, 0.5, 'swing')
-        .fadeTo(750, 1.0, 'swing');
-      i++;
-    } else {
-      clearInterval(winnerval);
-    }
-  }, 1000);
-}
+// function winSequence() {
+//   i = 0;
+//   var winnerval = setInterval(function() {
+//     if (i <= 4) {
+//       $(`#button${i}`)
+//         .fadeTo(750, 0.5, 'swing')
+//         .fadeTo(750, 1.0, 'swing');
+//       i++;
+//     } else {
+//       clearInterval(winnerval);
+//     }
+//   }, 1000);
+// }
 
 function lose() {
   if (userInput.length == compSeq.length) {
@@ -141,42 +146,3 @@ function getRandomNumber() {
   var random = Math.floor(Math.random() * 4 + 1);
   compSeq.push(random);
 }
-
-// set up a function that will light up the sequence
-
-// function colorSequence() {
-//   for (i = 0; i < compSeq.length; i++) {
-//       lightDown();
-//   }
-// }
-// var i = 0;
-// var myInterval = setInterval(isEqual, 1000);
-// function isEqual() {
-//   // if the user's input is correct
-//   if (userInput == compSeq) {
-//     buttonColor = document.getElementById(`button${compSeq[i]}`);
-//     buttonColor.style.opacity = '0.25';
-//     i++;
-//     console.log(button);
-//     // // call function to continue sequence
-//     // getRandomNumber();
-//   }
-// }
-// var i = 0;
-// function lightDown() {
-//   if (i <= compSeq.length) {
-//     document.getElementById(`button${compSeq[i]}`).style.opacity = '0.25';
-//   var newInterval = setInterval(function () {
-//   document.getElementById(`button${compSeq[i]}`).style.opacity = '0.1.0';
-//   }, 1000)
-//   i++;
-// }
-//   else {
-//     clearInterval(lightDown);
-//   }
-// }
-
-// function lightDown(i) {
-//   document.getElementById(`button${compSeq[i]}`).style.opacity = '1.0'
-
-// }
