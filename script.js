@@ -73,15 +73,14 @@ getRandomNumber();
 getRandomNumber();
 getRandomNumber();
 console.log(compSeq);
-
+lightDown();
 
 // set up a function that will light up the sequence
-// function colorSequence() {
-//   for (i = 0; i < compSeq.length; i++) {
-//       buttonColor = document.getElementById(`button${compSeq[i]}`);
-//       console.log(buttonColor);
-//   }
-// }
+function colorSequence() {
+  for (i = 0; i < compSeq.length; i++) {
+      lightDown();
+  }
+}
 var i = 0;
 var myInterval = setInterval(isEqual, 1000);
 function isEqual() {
@@ -95,20 +94,19 @@ function isEqual() {
     // getRandomNumber();
   }
 }
-// function lightDown() {
-//   var i = 0;
-//   var myInterval = setInterval(function () {
-//       if (i <= compSeq.length) {
-//         document.getElementById(`#button${compSeq[i]}`).style.opacity = '1.0';
-//         i++;
-//         lightUp()
-//       }
-//       else {
-//         clearInterval(myInterval);
-//       }
-//   }, 1000)
-//   }
 
-// function lightDown(){
-
-// }
+function lightDown() {
+  var i = 0;
+  if (i <= compSeq.length) { 
+  var newInterval = setInterval(function () {
+  document.getElementById(`button${compSeq[i]}`).style.opacity = '0.25'}, 1000);
+  var myInterval = setInterval(function() {
+    document.getElementById(`button${compSeq[i]}`).style.opacity = '1.0';
+  }, 1000)
+  i++;
+  lightDown();
+}
+  else {
+    clearInterval(lightDown);
+  }
+}
