@@ -73,40 +73,51 @@ getRandomNumber();
 getRandomNumber();
 getRandomNumber();
 console.log(compSeq);
-lightDown();
 
 // set up a function that will light up the sequence
-function colorSequence() {
-  for (i = 0; i < compSeq.length; i++) {
-      lightDown();
-  }
+// function colorSequence() {
+//   for (i = 0; i < compSeq.length; i++) {
+//       lightDown();
+//   }
+// }
+// var i = 0;
+// var myInterval = setInterval(isEqual, 1000);
+// function isEqual() {
+//   // if the user's input is correct
+//   if (userInput == compSeq) {
+//     buttonColor = document.getElementById(`button${compSeq[i]}`);
+//     buttonColor.style.opacity = '0.25';
+//     i++;
+//     console.log(button);
+//     // // call function to continue sequence
+//     // getRandomNumber();
+//   }
+// }
+// var i = 0;
+// function lightDown() {
+//   if (i <= compSeq.length) { 
+//     document.getElementById(`button${compSeq[i]}`).style.opacity = '0.25';
+//   var newInterval = setInterval(function () {
+//   document.getElementById(`button${compSeq[i]}`).style.opacity = '0.1.0';
+//   }, 1000)
+//   i++;
+// }
+//   else {
+//     clearInterval(lightDown);
+//   }
+// }
+function lightUp() {
+  for (i=0; i<compSeq.length; i++){
+  
+  $(`#button${compSeq[i]}`).fadeTo(1000, 0.25).fadeTo(1000, 1);
 }
-var i = 0;
-var myInterval = setInterval(isEqual, 1000);
-function isEqual() {
-  // if the user's input is correct
-  if (userInput == compSeq) {
-    buttonColor = document.getElementById(`button${compSeq[i]}`);
-    buttonColor.style.opacity = '0.25';
-    i++;
-    console.log(button);
-    // // call function to continue sequence
-    // getRandomNumber();
-  }
 }
+// function lightDown(i) {
+//   document.getElementById(`button${compSeq[i]}`).style.opacity = '1.0'
 
-function lightDown() {
-  var i = 0;
-  if (i <= compSeq.length) { 
-  var newInterval = setInterval(function () {
-  document.getElementById(`button${compSeq[i]}`).style.opacity = '0.25'}, 1000);
-  var myInterval = setInterval(function() {
-    document.getElementById(`button${compSeq[i]}`).style.opacity = '1.0';
-  }, 1000)
-  i++;
-  lightDown();
-}
-  else {
-    clearInterval(lightDown);
-  }
+// }
+
+for (i = 0; i< compSeq.length; i++) {
+  lightUp(i);
+  setTimeout(lightDown(i), 1000);
 }
