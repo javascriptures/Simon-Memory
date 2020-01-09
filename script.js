@@ -95,7 +95,7 @@ console.log(compSeq);
 // }
 // var i = 0;
 // function lightDown() {
-//   if (i <= compSeq.length) { 
+//   if (i <= compSeq.length) {
 //     document.getElementById(`button${compSeq[i]}`).style.opacity = '0.25';
 //   var newInterval = setInterval(function () {
 //   document.getElementById(`button${compSeq[i]}`).style.opacity = '0.1.0';
@@ -107,17 +107,25 @@ console.log(compSeq);
 //   }
 // }
 function lightUp() {
-  for (i=0; i<compSeq.length; i++){
-  
-  $(`#button${compSeq[i]}`).fadeTo(1000, 0.25).fadeTo(1000, 1);
+  j = 0;
+  var light = setInterval(function() {
+    if (j < compSeq.length) {
+      $(`#button${compSeq[j]}`)
+        .fadeTo(1000, 0.25)
+        .fadeTo(1000, 1);
+      j++;
+    } else {
+      clearInterval(light);
+    }
+  }, 1000);
 }
-}
+
 // function lightDown(i) {
 //   document.getElementById(`button${compSeq[i]}`).style.opacity = '1.0'
 
 // }
 
-for (i = 0; i< compSeq.length; i++) {
+for (i = 0; i < compSeq.length; i++) {
   lightUp(i);
   setTimeout(lightDown(i), 1000);
 }
