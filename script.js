@@ -15,6 +15,7 @@ document.querySelector('#button1').addEventListener('click', function(event) {
   userInput.push(1);
   clickSound.currentTime = 0;
   console.log(userInput);
+  sequence();
   lose();
 });
 
@@ -24,6 +25,7 @@ document.querySelector('#button2').addEventListener('click', function(event) {
   userInput.push(2);
   clickSound.currentTime = 0;
   console.log(userInput);
+  sequence();
   lose();
 });
 
@@ -33,6 +35,7 @@ document.querySelector('#button3').addEventListener('click', function(event) {
   userInput.push(3);
   clickSound.currentTime = 0;
   console.log(userInput);
+  sequence();
   lose();
 });
 
@@ -42,6 +45,7 @@ document.querySelector('#button4').addEventListener('click', function(event) {
   userInput.push(4);
   clickSound.currentTime = 0;
   console.log(userInput);
+  sequence();
   lose();
 });
 
@@ -103,22 +107,16 @@ function win() {
     reset();
     confetti.start();
     youWon.style.visibility = "visible";
+    setTimeout (winSequence, 1000);
     }
 }
 
-// function winSequence() {
-//   i = 0;
-//   var winnerval = setInterval(function() {
-//     if (i <= 4) {
-//       $(`#button${i}`)
-//         .fadeTo(750, 0.5, 'swing')
-//         .fadeTo(750, 1.0, 'swing');
-//       i++;
-//     } else {
-//       clearInterval(winnerval);
-//     }
-//   }, 1000);
-// }
+function winSequence() {
+  $(`#button1`).fadeTo(750, 0.5, 'swing').fadeTo(750, 1.0, 'swing');
+    $(`#button2`).fadeTo(750, 0.5, 'swing').fadeTo(750, 1.0, 'swing');
+    $(`#button3`).fadeTo(750, 0.5, 'swing').fadeTo(750, 1.0, 'swing');
+    $(`#button4`).fadeTo(750, 0.5, 'swing').fadeTo(750, 1.0, 'swing');
+}
 
 function lose() {
   if (userInput.length == compSeq.length) {
