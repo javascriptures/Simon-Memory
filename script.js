@@ -44,9 +44,7 @@ document.querySelector('#button4').addEventListener('click', function(event) {
   console.log(userInput);
 });
 
-document.querySelector('.sequence').addEventListener('click', function() {
-  var mynewInterval = setInterval(isEqual, 1000);
-});
+document.querySelector('.sequence').addEventListener('click', lightUp);
 
 // readyButton.addEventListener('click', readyState);
 
@@ -60,8 +58,19 @@ document.querySelector('.sequence').addEventListener('click', function() {
 //   }, 1000);
 // }
 
+function isEqual(){
+  if (userInput.length == compSeq.length){
+    for (i = 0; i<compSeq.length; i++){
+      return compSeq[i] === userInput[i];
+    }
+  }
+  else {return false;}
+}
+
 function sequence() {
+  for (i = 0; i<10; i++) {
   getRandomNumber();
+}
 }
 
 //generate random number for computer sequence
@@ -69,12 +78,16 @@ function getRandomNumber() {
   var random = Math.floor(Math.random() * 4 + 1);
   compSeq.push(random);
 }
+
 getRandomNumber();
 getRandomNumber();
 getRandomNumber();
 console.log(compSeq);
 
 // set up a function that will light up the sequence
+
+
+
 // function colorSequence() {
 //   for (i = 0; i < compSeq.length; i++) {
 //       lightDown();
@@ -124,8 +137,3 @@ function lightUp() {
 //   document.getElementById(`button${compSeq[i]}`).style.opacity = '1.0'
 
 // }
-
-for (i = 0; i < compSeq.length; i++) {
-  lightUp(i);
-  setTimeout(lightDown(i), 1000);
-}
