@@ -45,20 +45,20 @@ document.querySelector('#button4').addEventListener('click', function(event) {
 
 document.querySelector('.sequence').addEventListener('click', lightUp);
 
-
-readyButton.addEventListener('click', function () {
+readyButton.addEventListener('click', function() {
   compSeq = [];
   userInput = [];
   score = 0;
   getRandomNumber();
   lightUp();
+  intervalSequence;
   console.log(compSeq);
-
-})
+  readyButton.innerText = 'RESTART';
+});
 
 function lightUp() {
   j = 0;
-  var light = setInterval(function () {
+  var light = setInterval(function() {
     if (j < compSeq.length) {
       $(`#button${compSeq[j]}`)
         .fadeTo(1000, 0.25)
@@ -67,7 +67,7 @@ function lightUp() {
     } else {
       clearInterval(light);
     }
-  }, 1000);
+  }, 1500);
 }
 
 function isEqual() {
@@ -90,24 +90,48 @@ function sequence() {
     myScore.innerHTML = `Score: ${score}`;
     console.log(score);
     win();
-  } 
+  }
 }
 
 function win() {
-  if (score == 3) {
+  if (score == 10) {
     clearInterval(intervalSequence);
-    return alert('You win!');
+    reset();
+    alert('You win!');
   }
+}
+
+function winSequence() {
+  i = 0;
+  var winnerval = setInterval(function() {
+    if (i <= 4) {
+      $(`#button${i}`)
+        .fadeTo(750, 0.5, 'swing')
+        .fadeTo(750, 1.0, 'swing');
+      i++;
+    } else {
+      clearInterval(winnerval);
+    }
+  }, 1000);
 }
 
 function lose() {
   if (userInput.length == compSeq.length) {
     for (i = 0; i < compSeq.length; i++) {
       if (compSeq[i] !== userInput[i]) {
-        return alert('You lose!');
+        reset();
+        alert('You lose!');
       }
+    }
+  }
 }
-}
+
+function reset() {
+  userInput = [];
+  compSeq = [];
+  score = 0;
+  myScore.innerHTML = `Score: ${score}`;
+  readyButton.innerText = 'START';
 }
 
 var intervalSequence = setInterval(sequence, 500);
