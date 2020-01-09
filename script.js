@@ -108,6 +108,8 @@ function win() {
     confetti.start();
     youWon.style.visibility = "visible";
     setTimeout (winSequence, 1000);
+    setTimeout(winSequence, 1000);
+    setTimeout(winSequence, 1000);
     }
 }
 
