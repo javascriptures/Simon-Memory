@@ -5,6 +5,10 @@ h1 {
   font-size: larger;
   margin: 0 auto;
 }
+.sequence {
+  font-size: larger;
+  margin: 0 auto;
+}
 .container {
   display: grid;
   grid-template-columns: 1fr 1fr;
