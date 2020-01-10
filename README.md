@@ -36,3 +36,26 @@ The button flash effect was created using the methods ".fadeTo" and ".setTimeout
 
 The embedded gif was created first in HTML and then was hidden in CSS using the visibility property. In javascript I changed the visibility from "hidden" to "visible" upon winning.
 
+#### Click Sounds
+
+To mimic the button press feel of the original game, I added a "click" sound every time a button is pressed. This also helps users keep track of what button have been pressed, to follow the sequence better. I embedded the link in HTML and then called it in javascript when a click event is triggered.
+
+### Game Technologies
+
+#### Sequence Arrays
+
+This game almost entirely relies on the use of arrays for storing user input as well as the randomized sequence created by the game. 
+
+For the randomized computer sequence, I created a function called getRandomNumber that uses Math.floor and Math.random and then pushes the new random number into the computer sequence array. 
+
+![Screen Shot 2020-01-10 at 10 33 43 AM](https://user-images.githubusercontent.com/57779829/72177143-ef3ab580-3394-11ea-8f0c-96bb5778a912.png)
+
+Every time a colored button is pressed, a new number is pushed into the userInput array. I created a function called isEqual to test if the userInput array matches the computer sequence array, at which point the game will progress and a new point will be added to the score. 
+
+#### The Simon Flash Sequence
+
+This effect was, by far, the most difficult part of creating this game. I deployed many different types of techniques to accomplish this and landed on the ".fadeTo" and setInterval methods in the end. In my lightUp function, every element of the computer sequence array is individually triggered to give a flashing effect to the div buttons. Once the end of the array is reached, the clearInterval method is called to end the flashing sequence.
+
+![Screen Shot 2020-01-10 at 10 34 19 AM](https://user-images.githubusercontent.com/57779829/72177095-d205e700-3394-11ea-9f29-3695ea79898f.png)
+
+
