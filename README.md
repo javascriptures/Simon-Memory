@@ -58,4 +58,13 @@ This effect was, by far, the most difficult part of creating this game. I deploy
 
 ![Screen Shot 2020-01-10 at 10 34 19 AM](https://user-images.githubusercontent.com/57779829/72177095-d205e700-3394-11ea-9f29-3695ea79898f.png)
 
+#### The Winning Effects
 
+The winning effects referenced earlier are shown in this code snippet. For the purposes of demonstrating and testing, the winning score is set to 5. Once the score is met, the win function, resets the score and menu buttons, stops listening for a losing sequence, makes the winning gif "visible", starts the confetti effect, and flashes the colored buttons.
+
+![Screen Shot 2020-01-10 at 10 42 12 AM](https://user-images.githubusercontent.com/57779829/72177598-e5fe1880-3395-11ea-98e1-4579f96fd022.png)
+
+## In Closing:
+This game was very fun to make, but became extremely challenging at times. I really enjoyed playing with the aesthetics and different effects the user could experience. If I had had more time, I probably would've tried to tweak the hover effect so that it still works even during the game. I would also try to make the score save regardless of whether or not the page has been refreshed.
+
+Overall, I'm very pleased with how this turned out and can't wait to get some users and players to experience the game for themselves!
